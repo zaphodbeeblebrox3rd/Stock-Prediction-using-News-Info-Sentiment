@@ -1,0 +1,8 @@
+requests-html
+numpy
+pandas
+matplotlib
+scikit-learn
+keras
+transformers
+torch 
