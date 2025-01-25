@@ -38,11 +38,35 @@ keywords = [
     "model"
 ]
 
-scrape_news(start_date, website_url, sentimentInputJsonFile, scraping_rate_limit, keywords)
+# scrape news
+for website in website_url:
+    try:
+        scrape_news(website, sentimentInputJsonFile)
+    except Exception as e:
+        print(f"Error scraping news: {e}")
 
-prepare_data(data_prep_csv_path, daily_scores_json_path, merged_data_csv_path)
+# prepare data
+try:
+    prepare_data(data_prep_csv_path, daily_scores_json_path, merged_data_csv_path)
+except Exception as e:
+    print(f"Error preparing data: {e}")
 
-train_model(feature_csv_path, merged_data_csv_path)
+# train model
+try:
+    train_model(feature_csv_path, merged_data_csv_path)
+except Exception as e:
+    print(f"Error training model: {e}")
 
-analyze_sentiment(sentimentInputJsonFile, sentimentOutputJsonFile)
+# analyze sentiment
+try:
+    analyze_sentiment(sentimentInputJsonFile, sentimentOutputJsonFile)
+except Exception as e:
+    print(f"Error analyzing sentiment: {e}")
+
+# predict stock price
+try:
+    predict_stock_price(merged_data_csv_path)
+except Exception as e:
+    print(f"Error predicting stock price: {e}")
+
 

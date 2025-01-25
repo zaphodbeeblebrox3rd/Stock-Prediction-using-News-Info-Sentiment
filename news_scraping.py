@@ -4,24 +4,22 @@ from datetime import datetime, timedelta
 import json
 import time
 
-async def scrape_news(start_date, website_url, sentimentInputJsonFile, scraping_rate_limit, keywords):
+async def scrape_news(website_url, sentimentInputJsonFile):
     # Initialize the date range for news
     end_date = datetime.now().date()
     dt = timedelta(days=1)
 
     allData = {}
 
-    for single_date in (start_date + timedelta(n) for n in range((end_date - start_date).days)):
-        date_str = single_date.strftime("%Y-%m-%d")
-        url = f'{website_url}/{date_str}'
-        print(f"Fetching: {url}")
+    print(f"Fetching: {website_url}")
 
-        try:
-            page = await scrape_news_async(url, scraping_rate_limit, keywords)
-            articles = page.select('article')
+    try:
+        page = await scrape_news_async(website_url, scraping_rate_limit, keywords)
 
-            print(f"{date_str} > {len(articles)} articles fetched")
-            allData[date_str] = []
+        #articles = page.select('article')
+
+        #print(f"{date_str} > {len(articles)} articles fetched")
+        #allData[date_str] = []
 
             # for article in articles:
             #     heading_tag = article.select_one('h2.story__title a.story__link')
@@ -35,8 +33,8 @@ async def scrape_news(start_date, website_url, sentimentInputJsonFile, scraping_
             #             "label": label,
             #         })
 
-        except Exception as e:
-            print(f"Error fetching {website_url}: {e}")
+    except Exception as e:
+        print(f"Error fetching {website_url}: {e}")
 
 
     # Write the collected data to the output file
