@@ -1,11 +1,31 @@
 # Stock Prediction using News Info Sentiment (LSTM)
 ![Results](./output.png)
 
-## How to run?
-1. Step 1: Scrapping the news heading (news_scrapping.ipynb)
-2. Step 2: Performing sentiment analysis on news headings (sentiment_analysis.ipynb)
-3. Step 3: Preparing data for training (data_prep.ipynb)
-4. Step 4: Training on the merged dataset (training.ipynb)
+## How to set up the Conda Environment
+Anaconda Python is just one option for your python environment.  I recommend it.  Feel free to use venv or just plain pip.
+
+Install Anaconda Python from https://www.anaconda.com/products/distribution
+
+Create a new environment with Python 3.11
+
+```
+conda create -n stock_prediction python=3.11 --file spec-file.txt
+```
+
+Activate the environment
+
+```
+conda activate stock_prediction
+```
+
+
+
+
+## Explain the workflow
+1. Step 1: Scrapes the news headings
+2. Step 2: Performs sentiment analysis on news headings
+3. Step 3: Prepares data for training
+4. Step 4: Trains on the merged dataset
 
 ## Approach for LSTM
 The dataset is structured to feed historical sequences of feature values to the LSTM model, allowing it to learn patterns over time. The LSTM model is then trained to predict the target variable (e.g., the future stock price) based on the historical information. The normalization step ensures that all values are within a consistent range, which can improve the training process for neural networks.
