@@ -9,7 +9,7 @@ Install Anaconda Python from https://www.anaconda.com/products/distribution
 Create a new environment with Python 3.11
 
 ```
-conda create -n stock_prediction python=3.11 --file spec-file.txt
+conda env create -n stock_prediction python=3.11 --file environment.yml
 ```
 
 Activate the environment

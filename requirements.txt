@@ -6,3 +6,6 @@ scikit-learn
 keras
 transformers
 torch 
+lxml[html_clean]
+crawl4ai
+asyncio
