@@ -7,7 +7,7 @@ keras
 transformers
 torch 
 lxml[html_clean]
-crawl4ai
-asyncio
 tensorflow
 yfinance
+bs4
+requests
